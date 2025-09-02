@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form>
+    <fieldset><!-- Esta etiqueta te ayuda a dividir por secciones -->
+            <legend>Formulario de Identificacion</legend><!-- Titulo o encabezado del formulario -->
+    </fieldset>
+        <label>
+            Nombre:
+        </label>
+        <input type="text"  placeholder="Juanito Cristobal" id="NombreUsuario" name="Nombre"><!-- EL ID ES IMPORTATE PARA IDENTIFICAR CADA INPUT PARA JAVASCRIPT -->
+        <label>
+            Correo Electronico:
+        </label>
+        <input type="email" name="Email" id="Email" placeholder="@gmail.com">
+        <label>
+            Fecha de Nacimiento
+        </label>
+        <input type="date" id="Fecha de Nacimiento" name="Fecha de Nacimiento">
+       
+        <label>
+            Contraseña:
+        </label>
+        <input type="password" id="Contraseña" name="Contraseña">
+        <input type="submit" value="Enviar" id="EnviaNombre" name="EnviaNombre" style="background-color: rgb(0, 255, 17);"><!-- Value hace valido lo que envies al servidor -->
+
+    <fieldset><!-- Divide por secciones con recuadros -->
+            <legend>Selecciona Animales</legend>
+            <label>
+                Perro
+            </label>
+            <input type="radio" id="Perro" name="Animal" value="Perro">
+            <br>
+            <label>
+                Gato
+            </label>
+            <input type="radio" id="Gato" name="Animal" value="Gato">
+            <br>
+            <label>
+                Cangrejo
+            </label>
+            <input type="radio" id="Cangrejo" name="Animal" value="Cangrejo">
+            <br>
+            <label>
+                Pez
+            </label>
+            <input type="radio" id="Pez" name="Animal" value="Pez">
+    </fieldset>
+
+    <fieldset>
+            <legend>Seleciona un Videojuego</legend>
+            <label>
+                Roblox
+            </label>
+            <input type="checkbox" id="Roblox" name="Videojuego" value="Roblox">
+            <br>
+            <label>
+                Fifa
+            </label>
+            <input type="checkbox" id="Fifa" name="Videojuego" value="Fifa">
+            <br>
+            <label>
+                Fornite
+            </label>
+            <input type="checkbox" id="Fornite" name="Videojuego" value="Fornite">
+            <br>
+            <label>
+                GTA
+            </label>
+            <input type="checkbox" id="GTA" name="Videojuego" value="GTA">
+        </fieldset>
+        <fieldset>
+            <legend>Rangos</legend>
+                <label>
+                    Que tan nazi te consideras
+                </label>
+                <input name="Interes" id="Interes" type="range" min="0" max="100" value="0"><!-- OJO ASI SE HACE UNA BARRA DE RANGOS -->
+                <input name="color" id="color" type="color" >
+        
+    </fieldset>
+</form>
+    <form>
+        <fieldset>
+            <legend>Animales</legend>
+            <select name="Animales" id="selectdeanimales"><!-- Lista de opciones para animales -->
+                <option></option>
+                <option value="1">Gato</option>
+                <option value="2">Perro</option>
+                <option value="3">Pato</option>
+                <option value="4">Pez</option>
+            </select>
+        </fieldset>
+    <fieldset>
+        <select> <!-- ETIQUETA PARA SELECCIONAR UNA OPCION EN LISTA -->
+            <legend>Lenguajes de programacion</legend>
+            <option value="">Selecciona un lenguaje</option>
+            <optgroup label="Lenguajes de Frontend">
+                <option value="Html">Html</option>
+                <option value="css">CSS</option>
+                <option value="JAVASCRIPT">JAVASCRIPT</option>
+            </optgroup>
+            <optgroup label="Lenguajes de Backend">
+                <option value="Java">Java</option>
+                <option value="Pyton">Pyton</option>
+                <option value="PHP">PHP</option>
+            </optgroup>
+        </select>
+    </fieldset>
+    <fieldset><!-- Dentro de fieldset se puede hacer una barra de busqueda asistida -->
+        <legend>Ciudades</legend>
+        <label>Busca una ciudad en jalisco</label>
+        <input type="search" name="ciudad" list="Ciudades">
+        <datalist id="Ciudades">
+            <option value="Guadalajara">Guadalajara</option>
+            <option value="CDMX">CDMX</option>
+            <option value="Tonala">Tonala</option>
+        </datalist>
+    </br>
+        <label>Barras de progreso</label>
+        <progress class="Barra" value="50" max="100"></progress>
+        <progress max="100"></progress><!-- Barra de Carga -->
+    </br>
+        <textarea name="textarea" id="textarea" cols="100" rows="20" maxlength="20"></textarea><!-- cols(columnas) y rows(filas) son parametros para eltamaño de un textarea y el maxleght es los caracteres maximos -->
+    </br>
+        <input type="text" placeholder="Agrega un Comentario" name="placeholder" id="placeholder">
+        <input type="email" placeholder="Agrega un CorreoElectronico" name="Correoplace" id="Correoplace" required>
+    </fieldset>
+        <button type="submit">Envia formulario</button>
+    </form>
+    <form oninput="multiplicacion()"><!-- Oninput llamara este metodo para este form -->
+        <fieldset><!-- OJO CALCULADORA DINAMICA CON JS -->
+            <legend>Calculador</legend>
+            <input type="number" id="numero1" name="numero1">
+            <input type="number" id="numero2" name="numero2"> =
+            <output id="resultadooutput" for="numero1 numero2"></output><!-- El id,name y for son importantes para el output -->
+        </fieldset>
+    </form>
+    <!-- Codigo JAVASCRIPT  -->
+    <script> 
+        function multiplicacion(){
+            var primernumero = document.getElementById('numero1').value; //Asi se declara una variable con var
+            var segundonumero = document.getElementById('numero2').value;
+            var resultado = parseFloat(primernumero) * parseFloat(segundonumero);
+            console.log(resultado); //Asi se imprime en consola
+
+            document.getElementById('resultadooutput').value = resultado;
+        }
+    </script>
+
+
+
+</body>
+</html>

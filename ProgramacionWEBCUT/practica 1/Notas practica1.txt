@@ -1,0 +1,1 @@
+El atributo Lang en el inicio del codigo html es el lenguaje
